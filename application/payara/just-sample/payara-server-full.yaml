@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: payara
+  labels:
+    app: payara
+spec:
+  containers:
+  - name: payara
+    image: payara/server-full
+    ports:
+    - containerPort: 8080
+    - containerPort: 8181
+    - containerPort: 4848
+    - containerPort: 9009
+

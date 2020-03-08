@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payara-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payara-app
+  template:
+    metadata:
+      labels:
+        app: payara-app
+    spec:
+      containers:
+        - image: payara/server-full
+          name: payara
+          ports:
+            - containerPort: 8080
+            - containerPort: 8181
+            - containerPort: 4848
+            - containerPort: 9009
+

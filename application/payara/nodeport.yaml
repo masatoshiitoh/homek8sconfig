@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-nodeport
+spec:
+  type: NodePort
+  externalIPs:
+    - 192.168.1.211
+  ports:
+  - name: "http"
+    protocol: "TCP"
+    port: 8080
+    targetPort: 8080
+    nodePort: 30080
+  - name: "https"
+    protocol: "TCP"
+    port: 8181
+    targetPort: 8181
+    nodePort: 30081
+  - name: "admin"
+    protocol: "TCP"
+    port: 4848
+    targetPort: 4848
+    nodePort: 30048
+  - name: "debug"
+    protocol: "TCP"
+    port: 9009
+    targetPort: 9009
+    nodePort: 30009
+  selector:
+    app: payara-app
+
+
